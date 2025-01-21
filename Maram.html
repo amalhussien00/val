@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Maram!</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/736x/ec/d5/fe/ecd5fe9c676b4636290a0962dfb1040d.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .box {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px 40px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 3em;
+            color: #927096;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .no-button {
+            background-color: #ffcbcb;
+            color: black;
+        }
+        .yes-button {
+            background-color: #f99b9b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Hello Maram! ❤️</h1>
+        <p>This is Amal, wanna know what this page is for?</p>
+        <button class="no-button" onclick="showError()">No</button>
+        <button class="yes-button" onclick="goToNextPage()">Yes</button>
+    </div>
+
+    <script>
+        function showError() {
+            alert("Error: You can't say no to this!");
+        }
+
+        function goToNextPage() {
+            window.location.href = "valentine.html"; // The next page file name
+        }
+    </script>
+</body>
+</html>

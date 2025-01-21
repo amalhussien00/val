@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/736x/5c/d6/88/5cd688aba68aea0baf103855d867ef73.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .box {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px 40px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #f99b9b;
+        }
+        h2 {
+            color: #927096;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #927096;
+            color: white;
+            position: relative;
+        }
+        .yes-button:hover::after {
+            content: "You will not regret ❤️";
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffeaea;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: black;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+        }
+        .no-button {
+            margin-top: 40px;
+            background-color: #ffcbcb;
+            color: black;
+        }
+        .gif-container {
+            margin-top: 20px;
+            display: none;
+        }
+        .no-container {
+            margin-top: 40px;
+            text-align: center;
+            display: none;
+        }
+        .no-container h1 {
+            font-size: 3em;
+            color: red;
+        }
+        iframe {
+            margin-top: 20px;
+            width: 560px;
+            height: 315px;
+            border: none;
+        }
+        /* Confetti animation */
+        @keyframes confetti {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(1000px); opacity: 0; }
+        }
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            pointer-events: none;
+            animation: confetti 2s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Will You Be My Valentine? 💖</h1>
+        <button class="yes-button" onclick="showSurprise()">Yes!</button>
+        <div id="gif-container" class="gif-container">
+            <img src="https://i.pinimg.com/originals/7a/f4/58/7af458bc35898f4ffddc076491ea9a37.gif" alt="Hello Kitty Dancing">
+            <h2>Yaaaay I love you! ❤️</h2>
+        </div>
+    </div>
+
+    <button class="no-button" onclick="window.location.href='https://youtu.be/xfLcbmqN_7I?si=dOiQvCa452xtrjVR'">No</button>
+
+    <div id="no-container" class="no-container">
+        <h1>NOOOO!</h1>
+        <iframe src="https://www.youtube.com/embed/xfLcbmqN_7I?autoplay=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        function showSurprise() {
+            document.getElementById("gif-container").style.display = "block";
+            generateConfetti();  // Function to generate confetti when "Yes" is clicked
+        }
+
+        function generateConfetti() {
+            const numConfetti = 100; // Number of confetti pieces
+            for (let i = 0; i < numConfetti; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = `${Math.random() * 100}vw`;  // Random horizontal position
+                confetti.style.animationDuration = `${Math.random() * 2 + 2}s`;  // Random duration for variety
+                confetti.style.animationDelay = `${Math.random() * 2}s`;  // Delay to stagger confetti fall
+                confetti.style.width = `${Math.random() * 10 + 10}px`;  // Random width for confetti pieces
+                confetti.style.height = `${Math.random() * 10 + 10}px`;  // Random height
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;  // Random color
+
+                document.body.appendChild(confetti);
+
+                // Remove confetti after animation completes
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
